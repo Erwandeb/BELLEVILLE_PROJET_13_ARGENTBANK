@@ -1,11 +1,14 @@
 import React from 'react';
+import Hero from '../components/Hero';
+import Navigation from '../components/Navigation';
 
-const LandingPage = () => {
+const HomePage = () => {
     return (
-        <div>
-            
+        <div className="homePage">
+            <Navigation />
+            <Hero />
         </div>
     );
 };
 
-export default LandingPage ;
+export default HomePage ;

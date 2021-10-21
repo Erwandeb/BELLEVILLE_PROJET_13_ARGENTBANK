@@ -1,9 +1,10 @@
 import React from 'react';
+import Navigation from '../components/Navigation';
 
 const Profil = () => {
     return (
-        <div>
-            
+        <div className="profil">
+            <Navigation/>
         </div>
     );
 };
