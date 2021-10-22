@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from '../public/medias/argentBankLogo.png'
+import { NavLink } from "react-router-dom"
 
 const Navigation = () => {
     return (
@@ -13,11 +14,11 @@ const Navigation = () => {
                     />
                 <h1 className="sr-only">Argent Bank</h1>
                 </a>
-                <div>
-                    <a className="main-nav-item" href="./sign-in.html">
-                    <i className="fa fa-user-circle"></i>
+                <div> 
+                <i className="fa fa-user-circle"></i>
+                    <NavLink className="main-nav-item" exact to ="/login" activeClassName ="nav-active">
                     Sign In
-                    </a>
+                    </NavLink>
                 </div>
             </nav>
         </div>
