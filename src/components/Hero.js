@@ -2,12 +2,13 @@ import React from 'react';
 import iconChat from '../public/medias/icon-chat.png'; 
 import iconMoney from '../public/medias/icon-money.png';  
 import iconSecurity from '../public/medias/icon-security.png';
+import imagePath from '../public/medias/bank-tree.jpeg'
 
 const Hero = () => {
     return (
         <div className="hero-display">
             <main>
-                <div className="hero">
+                <div className="hero" style= {{ backgroundImage: `url('${imagePath}')`}}>
                     <section className="hero-content">
                         <h2 className="sr-only">Promoted Content</h2>
                         <p className="subtitle">No fees.</p>
