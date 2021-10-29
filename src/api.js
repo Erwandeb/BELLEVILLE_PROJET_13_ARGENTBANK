@@ -21,7 +21,58 @@
 const apiMockRunning = true;
 
 class ApiMock{
+
+    // Un nouvel utilisateur créer son profil
+    getUserSignUp(){
+        console.log('renvoie class APIMOCK')
+        return new Promise((resolve, reject) => {
+            if(apiMockRunning) resolve({
+                firstName: 'Mike',
+                lastName: 'Tyson',
+                email: 'hello@mike-tyson.com',
+                password: 'password222'
+            })
+            else{
+                reject('api mock is not running')
+            }
+        })
+    }
+
+    // Un utilisateur se connecte 
+    getUserLogin(){
+        console.log('renvoie class APIMOCK')
+        return new Promise((resolve, reject) => {
+            if(apiMockRunning) resolve({
+                firstName: 'Mike',
+                lastName: 'Tyson',
+                email: 'hello@mike-tyson.com',
+                password: 'password222'
+            })
+            else{
+                reject('api mock is not running')
+            }
+        })
+    }
+
+    // Un utilisateur récupère son profil, et son token pour utiliser l'application
     getUserProfile(){
+        console.log('renvoie class APIMOCK')
+        return new Promise((resolve, reject) => {
+            if(apiMockRunning) resolve({
+                firstName: 'Mike',
+                lastName: 'Tyson',
+                email: 'hello@mike-tyson.com',
+                password: 'password222'
+            })
+            else{
+                reject('api mock is not running')
+            }
+        })
+    }
+
+
+    // Un utilisateur récupère son profil, et modifie ses données
+    changeUserProfile(){
         console.log('renvoie class APIMOCK')
         return new Promise((resolve, reject) => {
             if(apiMockRunning) resolve({
@@ -47,12 +98,39 @@ class ApiMock{
 */
 
 class Api {
-    getUserProfile(){
+
+    // Un nouvel utilisateur créer son profil
+    getUserSignUp(){
         console.log('renvoie class API')
         return fetch(process.env.REACT_APP_API_URL + '/api/v1/user/signup').then((res) => res.json())
         .then((res)=>res.data)
         
     }
+
+    // Un utilisateur se connecte
+    getUserLogin(){
+        console.log('renvoie class API')
+        return fetch(process.env.REACT_APP_API_URL + '/api/v1/user/login').then((res) => res.json())
+        .then((res)=>res.data)
+        
+    } 
+    
+    // Un utilisateur récupère son profil, et son token pour utiliser l'application
+    getUserProfile(){
+        console.log('renvoie class API')
+        return fetch(process.env.REACT_APP_API_URL + '/api/v1/user/profile').then((res) => res.json())
+        .then((res)=>res.data)
+        
+    }
+
+    // Un utilisateur récupère son profil, et modifie ses données
+    changeUserProfile(){
+        console.log('renvoie class API')
+        return fetch(process.env.REACT_APP_API_URL + '/api/v1/user/profile').then((res) => res.json())
+        .then((res)=>res.data)
+        
+    }
+
 
 }
 
