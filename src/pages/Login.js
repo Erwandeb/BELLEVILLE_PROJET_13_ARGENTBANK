@@ -2,16 +2,15 @@ import React, {useEffect,useState} from 'react';
 import Footer from '../components/Footer';
 import Navigation from '../components/Navigation';
 import SignIncontent from '../components/SignIncontent';
-import api from '../api';
+
 
 
 
 const Login = () => {
 
-
-
+   
     // Handle Error, loading or render home Page 
-    
+  
         return (
             <div className="login">
                 <Navigation/>
@@ -21,7 +20,6 @@ const Login = () => {
                 <Footer/>
             </div>
         );
-
 };
 
 export default Login;
