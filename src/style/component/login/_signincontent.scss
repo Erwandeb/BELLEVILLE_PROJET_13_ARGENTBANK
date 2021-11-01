@@ -1,20 +1,11 @@
 
-.sign-in-content-display{
-  height: 100%;
-  margin: 0 auto;
-  padding: 2rem;
-  margin-bottom: 4rem;
-    .bg-dark{
-      height: 100%;
-  }
-  
   .sign-in-content {
       box-sizing: border-box;
       background-color: white;
       width: 300px;
       margin: 0 auto;
-      margin-top: 3rem;
       padding: 2rem;
+      margin-top: 3rem;
   }
   
   .sign-in-icon {
@@ -71,7 +62,7 @@
     }
     
     .sign-in-icon {
-      font-size: 5rem;
+      font-size: 1rem;
     }
     
     .input-remember {
@@ -98,6 +89,6 @@
       font-size: 1.2rem;
     }
   
-}
+
 
 
