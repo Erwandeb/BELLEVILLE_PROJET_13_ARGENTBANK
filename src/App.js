@@ -12,6 +12,7 @@ import axios from 'axios';
 
 function App() {
 
+  /*
   const [uid, setUid] = useState(null);
 
   useEffect(()=>{
@@ -25,12 +26,10 @@ function App() {
     }
     fetchToken();
   })
+  */
 
 /*
 let bearer = 'Bearer ' + JSON.parse(localStorage.getItem('token'));
-
-//payload is the data which you're trying to send to the api endpoint
-
 axios({
     method: 'post',
     url: `${process.env.REACT_APP_API_URL}api/v1/user/profile`,
@@ -48,7 +47,6 @@ axios({
 
   return (
     <div className="App">
-      <UidContext.Provider value={uid}>
       <BrowserRouter>
         <Switch>
           <Route path="/" exact component={HomePage}/>
@@ -57,7 +55,6 @@ axios({
           <Route component={NotFound}/>
         </Switch>
       </BrowserRouter>
-      </UidContext.Provider>
     </div>
   );
 }

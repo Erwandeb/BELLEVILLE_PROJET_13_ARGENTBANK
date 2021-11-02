@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
 
 
@@ -12,30 +12,25 @@ const SignIncontent = () => {
  
         const handleLogin = (e) => {
             e.preventDefault();
-    
-            /*
             const usernameError = document.querySelector('.userName-error');
             const passwordError = document.querySelector('.password-error');
-            */
-        
+   
             axios({
-                method:"post",
+                method: "post",
                 url:`${process.env.REACT_APP_API_URL}api/v1/user/login`,
-                data:{
+                data: {
                     username:username,
                     password:password,
                 },
             })
             .then((res)=>{
                 console.log(res);
-                /*
                 if(res.data.errors){
-                    usernameError.innerHTML= res.data.error.username;
-                    passwordError.innerHTML= res.data.error.password;
-                }else{
+                    usernameError.innerHTML= <p>error</p> ;
+                    passwordError.innerHTML= <p>error</p>;
+                } else{
                     window.location='/profil';
                 }
-                */
             });
         };
 
@@ -72,7 +67,7 @@ const SignIncontent = () => {
                         />
                         <label htmlFor="remember-me">Remember me</label>
                 </div>
-                <input type="submit" className="sign-in-button" value ="Sign in"/>
+                <button type="submit" className="sign-in-button">Sign in</button>
             </form>
         </section>
     );

@@ -7,8 +7,6 @@
 */
 
 
-
-
 /**
 * 
 * This class is API Mock for developping app
