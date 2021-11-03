@@ -15,27 +15,32 @@ const SignIncontent = () => {
             const usernameError = document.querySelector('.userName-error');
             const passwordError = document.querySelector('.password-error');
             
-    
-
             axios({
                 method: "post",
                 url:`${process.env.REACT_APP_API_URL}api/v1/user/login`,
                 data: {
-                    username:username,
+                    email:username,
                     password:password,
                 },
             })
+            // Rendre dynamique ce composant avec retour message du backend
             .then((res)=>{
                 console.log(res);
                 if(res.data.errors){
-                    usernameError.innerHTML= <p>error</p> ;
-                    passwordError.innerHTML= <p>error</p>;
+                    usernameError.innerHTML= <p>Identidiant incorrect</p>
+                    passwordError.innerHTML= <p>Mdp incorrect</p>
                 } else{
                     window.location='/profil';
+                    console.log(res);
                 }
             });
+            /*
+            .catch((err) => {
+                console.log(err)
+            })
+            */
         };
-
+                
 
     return (
         <section className="sign-in-content">
