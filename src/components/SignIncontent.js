@@ -4,17 +4,19 @@ import axios from 'axios';
 
 const SignIncontent = () => {
 
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
 
-  
+    
     //Username is email of user !
  
         const handleLogin = (e) => {
             e.preventDefault();
             const usernameError = document.querySelector('.userName-error');
             const passwordError = document.querySelector('.password-error');
-   
+            
+    
+
             axios({
                 method: "post",
                 url:`${process.env.REACT_APP_API_URL}api/v1/user/login`,
@@ -61,11 +63,11 @@ const SignIncontent = () => {
                     <div className="password-error"></div>
                 </div>
                 <div className="input-remember">
-                        <input 
-                            type="checkbox" 
-                            id="remember-me"
-                        />
-                        <label htmlFor="remember-me">Remember me</label>
+                    <input 
+                        type="checkbox" 
+                        id="remember-me"
+                    />
+                    <label htmlFor="remember-me">Remember me</label>
                 </div>
                 <button type="submit" className="sign-in-button">Sign in</button>
             </form>
