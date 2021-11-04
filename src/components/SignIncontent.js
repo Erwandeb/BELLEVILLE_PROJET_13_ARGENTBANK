@@ -7,9 +7,6 @@ const SignIncontent = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-    
-    //Username is email of user !
- 
         const handleLogin = (e) => {
             e.preventDefault();
             const usernameError = document.querySelector('.userName-error');
@@ -23,21 +20,16 @@ const SignIncontent = () => {
                     password:password,
                 },
             })
-            // Rendre dynamique ce composant avec retour message du backend
             .then((res)=>{
                 console.log(res);
-                if(res.data.errors){
-                    usernameError.innerHTML= <p>Identidiant incorrect</p>
-                    passwordError.innerHTML= <p>Mdp incorrect</p>
-                } else{
-                    window.location='/profil';
-                    console.log(res);
-                }
+                localStorage.setItem("your token ID :", res.data.body.token);
+                window.location='/profil';
             });
             /*
-            .catch((err) => {
-                console.log(err)
-            })
+            .catch((error) => {
+                console.log(error);
+                msgError.innerHTML = "Erreur, identifiants incorrects...";
+              });
             */
         };
                 
@@ -54,6 +46,8 @@ const SignIncontent = () => {
                         id="username"
                         onChange={(e)=>setUsername(e.target.value)}
                         value={username}
+                        minLength="2"
+                        maxLength="15"
                     />
                     <div className="userName-error"></div>
                 </div>
@@ -64,6 +58,8 @@ const SignIncontent = () => {
                             id="password"
                             onChange={(e)=>setPassword(e.target.value)}
                             value={password}
+                            minLength="2"
+                            maxLength="15"
                         />
                     <div className="password-error"></div>
                 </div>

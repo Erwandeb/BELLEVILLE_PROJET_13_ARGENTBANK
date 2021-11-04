@@ -12,17 +12,34 @@ import axios from 'axios';
 
 function App() {
 
+    
+   // let bearer = 'Bearer' + JSON.parse(localStorage.getItem('token'));
+    
+    /*
+    axios({
+        method: 'post',
+        url: `${process.env.REACT_APP_API_URL}api/v1/user/profile`,
+        headers: {
+          Authorization: bearer 
+        },
+      })
+        .then(res => console.log(res))
+        .catch(err => console.log(err));
+      */
+  
   /*
-  const [uid, setUid] = useState(null);
-
   useEffect(()=>{
     const fetchToken = async () => {
       await axios({
         method: "post",
         url: `${process.env.REACT_APP_API_URL}api/v1/user/profile`
       })
-      .then((res)=> setUid(res.data))
-      .catch((res)=>console.log('no token'+ res))
+      .then((res)=> {
+        console.log(res)
+      })
+      
+      //setUid(res.data))
+      //.catch((res)=>console.log('no token'+ res))
     }
     fetchToken();
   })
