@@ -22,7 +22,7 @@ const SignIncontent = () => {
             })
             .then((res)=>{
                 console.log(res);
-                localStorage.setItem("your token ID :", res.data.body.token);
+                localStorage.setItem("token", res.data.body.token);
                 window.location='/profil';
             });
             /*
