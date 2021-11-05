@@ -34,4 +34,23 @@
     width: 200px;
   }
 
-  
+  .logger{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .welcome-user{
+    display: flex;
+    flex-direction: row;
+    padding-right: 1rem;
+    align-items: center;
+    justify-content: center;
+    p{
+      font-size: large;
+      font-weight: bold;
+      margin: 0px;
+      padding-left: 5px;
+    }
+  }

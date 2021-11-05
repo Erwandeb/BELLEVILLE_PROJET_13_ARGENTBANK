@@ -8,11 +8,15 @@ import Profil from './pages/Profil';
 import { useEffect, useState } from 'react';
 import { UidContext } from './components/AppContext';
 import axios from 'axios';
+import Navigation from './components/Navigation';
+import { useDispatch } from 'react-redux';
+import { getUser } from './actions/user.actions';
 const token = localStorage.getItem("token")
 
 function App() {
 
-  const [uid, setUid] = useState(null)
+  const [uid, setUid] = useState(null);
+  const dispatch = useDispatch();
   
   useEffect(()=>{
     const fetchToken = async() => {
@@ -24,14 +28,17 @@ function App() {
           },
       })
       .then((res) => setUid(res.data.body.id))
-      .catch(err => console.log(err));
+      .catch(err => console.log("no Token", err));
     }
     fetchToken();
-  },[])
+
+    if(uid)dispatch(getUser())
+  },[uid])
   
 
   return (
     <div className="App">
+        
       <UidContext.Provider value={uid}>
         <BrowserRouter>
           <Switch>
