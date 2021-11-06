@@ -1,7 +1,8 @@
 import axios from 'axios';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { useSelector } from 'react-redux';
 const token = localStorage.getItem("token");
+
 
 const WelcomeUser = () => {
     
@@ -14,6 +15,7 @@ const WelcomeUser = () => {
     if(!userData.body) {
         return null
     }
+
 
     const updateUserData =(e)=>{
         e.preventDefault();
@@ -30,20 +32,22 @@ const WelcomeUser = () => {
             },
         })
         .then((res) => {
-              console.log(res)
+              setFirstName(res.data.body.firstName);
         })
         .catch(err => console.log("no Token", err));
+        
+        setupdateProfile(!updateProfile)
+        window.location="./profil";
     }
 
 
     return (
         <div className="welcome-user-display">
             <div className="header">
-                <h1>Welcome back !</h1>
-
+                <h1 className="welcome-back">Welcome back </h1>
                 {updateProfile === false && (
                     <>
-                        <h1> {userData.body.firstName} {userData.body.lastName}</h1>
+                        <h1 className="name-user"> {userData.body.firstName} {userData.body.lastName} !</h1>
                         <button className="edit-button" onClick={()=>setupdateProfile(!updateProfile)}>Edit Name</button>
                     </>
                 )}
@@ -57,8 +61,8 @@ const WelcomeUser = () => {
                                 onChange={(e) =>setFirstName(e.target.value)}
                                 value={firstname}
                                 placeholder={userData.body.firstName}
-                                minLength="2"
-                                maxLength="15"
+                                minLength="2" required
+                                maxLength="15" 
                             />
                             <input
                                 type="text" 
@@ -67,7 +71,7 @@ const WelcomeUser = () => {
                                 onChange={(e) =>setLastName(e.target.value)}
                                 value={lastname}
                                 placeholder={userData.body.lastName}
-                                minLength="2"
+                                minLength="2" required
                                 maxLength="15"
                             />
                             <br/>

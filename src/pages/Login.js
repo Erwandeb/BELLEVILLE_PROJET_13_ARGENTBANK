@@ -13,7 +13,7 @@ const Login = () => {
         return (
             <div className="login">
                 <Navigation/>
-                <main className="main bg-dark">
+                <main className="main bg-dark-login">
                     <SignIncontent />
                 </main>
                 <Footer/>

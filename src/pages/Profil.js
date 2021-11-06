@@ -11,7 +11,7 @@ const Profil = () => {
     return (
         <div className="profil">
             <Navigation/>
-            <main className="main bg-dark">  
+            <main className="main bg-dark-profil">  
                 <WelcomeUser/>
                 <Account/>
             </main>

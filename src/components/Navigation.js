@@ -3,8 +3,9 @@ import logo from '../public/medias/argentBankLogo.png';
 import { NavLink } from "react-router-dom";
 import {UidContext} from "./AppContext";
 import { useSelector } from 'react-redux';
+import Authentification from './Authentification';
 
-const Navigation = () => {
+const Navigation = (props) => {
 
     const uid = useContext(UidContext);
     const userData = useSelector((state) => state.userReducer);
@@ -17,6 +18,9 @@ const Navigation = () => {
     const userIsLoggingOut= ()=>{
         localStorage.clear();
         window.location="./"
+        Authentification.logout(()=>{
+            props.history.push("/");
+        })
     }
 
     

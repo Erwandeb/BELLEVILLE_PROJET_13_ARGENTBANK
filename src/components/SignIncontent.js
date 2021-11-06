@@ -1,37 +1,45 @@
 import React, {useState} from 'react';
 import axios from 'axios';
+import Authentification from './Authentification'
+const usernameError = document.querySelector('.userName-error');
+const passwordError = document.querySelector('.password-error');
 
 
-const SignIncontent = () => {
+const SignIncontent = (props) => {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-        const handleLogin = (e) => {
-            e.preventDefault();
-            const usernameError = document.querySelector('.userName-error');
-            const passwordError = document.querySelector('.password-error');
-            
-            axios({
-                method: "post",
-                url:`${process.env.REACT_APP_API_URL}api/v1/user/login`,
-                data: {
-                    email:username,
-                    password:password,
-                },
-            })
-            .then((res)=>{
-                console.log(res);
-                localStorage.setItem("token", res.data.body.token);
-                window.location='/profil';
-            });
-            /*
+    const handleLogin = (e) => {
+        e.preventDefault();
+         
+        // Submit form data 
+        axios({
+            method: "post",
+            url:`${process.env.REACT_APP_API_URL}api/v1/user/login`,
+            data: {
+                 email:username,
+                password:password,
+            },
+        })
+        .then((res)=>{
+            console.log(res);
+            localStorage.setItem("token", res.data.body.token);
+            window.location='/profil';
+        });
+        /*
             .catch((error) => {
-                console.log(error);
-                msgError.innerHTML = "Erreur, identifiants incorrects...";
-              });
-            */
-        };
+            console.log(error);
+            msgError.innerHTML = "Erreur, identifiants incorrects...";
+            });
+        */
+
+        // Handle authenfication 
+        Authentification.login(()=>{
+            props.history.push("./profil")
+        })
+            
+    };
                 
 
     return (

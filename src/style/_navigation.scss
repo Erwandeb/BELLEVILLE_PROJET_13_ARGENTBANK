@@ -54,3 +54,15 @@
       padding-left: 5px;
     }
   }
+
+  @media (max-width: 425px) {
+    .logger{
+      font-size: 14px;
+      width: 100%;
+      display: flex;
+      justify-content: end;
+    }
+    .welcome-user{
+      padding-right: 0px;
+    }
+  }

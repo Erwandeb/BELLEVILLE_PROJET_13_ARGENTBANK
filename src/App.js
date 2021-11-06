@@ -8,10 +8,11 @@ import Profil from './pages/Profil';
 import { useEffect, useState } from 'react';
 import { UidContext } from './components/AppContext';
 import axios from 'axios';
-import Navigation from './components/Navigation';
 import { useDispatch } from 'react-redux';
 import { getUser } from './actions/user.actions';
+import { ProtectedRoute } from './components/Protected.route';
 const token = localStorage.getItem("token")
+
 
 function App() {
 
@@ -44,8 +45,8 @@ function App() {
           <Switch>
             <Route path="/" exact component={HomePage}/>
             <Route path="/login" exact component={Login}/>
-            <Route path="/profil" exact component={Profil}/>
-            <Route component={NotFound}/>
+            <ProtectedRoute path="/profil" exact component={Profil}/>
+            <Route path="*" component={NotFound}/>
           </Switch>
         </BrowserRouter>
       </UidContext.Provider>
