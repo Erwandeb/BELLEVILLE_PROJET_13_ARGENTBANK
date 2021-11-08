@@ -10,7 +10,7 @@ const SignIncontent = (props) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleLogin = (e) => {
+    const  handleLogin =(e)=>{
         e.preventDefault();
          
         // Submit form data 
@@ -23,21 +23,18 @@ const SignIncontent = (props) => {
             },
         })
         .then((res)=>{
-            console.log(res);
-            localStorage.setItem("token", res.data.body.token);
-            window.location='/profil';
+                console.log(res);
+                localStorage.setItem("token", res.data.body.token);
+                window.location='/profil';
         });
+        
+        /*.catch((err) => {console.log("erreur ", err)})*/
         /*
-            .catch((error) => {
-            console.log(error);
-            msgError.innerHTML = "Erreur, identifiants incorrects...";
-            });
-        */
-
         // Handle authenfication 
         Authentification.login(()=>{
             props.history.push("./profil")
         })
+        */
             
     };
                 

@@ -44,7 +44,7 @@ const Navigation = (props) => {
                             </NavLink>
                         </div>
                         <div className="logout-display">
-                            <i class="fa fa-sign-out"></i>
+                            <i className="fa fa-sign-out"></i>
                             <NavLink className="main-nav-item" exact to ="/" activeClassName ="nav-active" onClick={userIsLoggingOut}>
                             Sign Out
                             </NavLink>

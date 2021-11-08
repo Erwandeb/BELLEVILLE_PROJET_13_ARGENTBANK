@@ -34,7 +34,7 @@ const WelcomeUser = () => {
         .then((res) => {
               setFirstName(res.data.body.firstName);
         })
-        .catch(err => console.log("no Token", err));
+        .catch(err => console.log("no Token avalaible", err));
         
         setupdateProfile(!updateProfile)
         window.location="./profil";
