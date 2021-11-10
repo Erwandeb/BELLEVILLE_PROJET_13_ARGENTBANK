@@ -23,22 +23,13 @@ const SignIncontent = (props) => {
             },
         })
         .then((res)=>{
-                console.log(res);
-                localStorage.setItem("token", res.data.body.token);
-                window.location='/profil';
-        });
-        
-        /*.catch((err) => {console.log("erreur ", err)})*/
-        /*
-        // Handle authenfication 
-        Authentification.login(()=>{
-            props.history.push("./profil")
+            console.log(res);
+            localStorage.setItem("token", res.data.body.token);
+            window.location='/profil';
         })
-        */
-            
+        .catch((err) => {console.log("erreur ", err.response.data.message)})
     };
                 
-
     return (
         <section className="sign-in-content">
             <i className="fa fa-user-circle sign-in-icon"></i>

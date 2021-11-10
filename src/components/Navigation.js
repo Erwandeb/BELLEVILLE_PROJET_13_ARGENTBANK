@@ -10,20 +10,16 @@ const Navigation = (props) => {
     const uid = useContext(UidContext);
     const userData = useSelector((state) => state.userReducer);
 
-    // handle "undefined" error
-    if(!userData.body) {
-        return null
-    }
-
+    console.log("test", userData)
+    
     const userIsLoggingOut= ()=>{
         localStorage.clear();
         window.location="./"
         Authentification.logout(()=>{
-            props.history.push("/");
+        props.history.push("/");
         })
     }
 
-    
     return (
         <div className="nav-cointainer">
             <nav className="main-nav">
@@ -40,13 +36,13 @@ const Navigation = (props) => {
                         <div className="welcome-user">
                             <i className="fa fa-user-circle"></i>
                             <NavLink className="main-nav-item" exact to ="/Profil" activeClassName ="nav-active">
-                                {userData.body.firstName}
+                                {userData?.body?.firstName}
                             </NavLink>
                         </div>
                         <div className="logout-display">
                             <i className="fa fa-sign-out"></i>
                             <NavLink className="main-nav-item" exact to ="/" activeClassName ="nav-active" onClick={userIsLoggingOut}>
-                            Sign Out
+                                Sign Out
                             </NavLink>
                         </div>
                      </div>
@@ -58,7 +54,6 @@ const Navigation = (props) => {
                         </NavLink>
                     </div>
                 )}
-           
             </nav>
         </div>
     );

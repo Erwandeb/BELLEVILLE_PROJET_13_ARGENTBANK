@@ -1,15 +1,26 @@
-import React, {useEffect,useState} from 'react';
+import React, {useContext} from 'react';
 import Footer from '../components/Footer';
 import Navigation from '../components/Navigation';
 import SignIncontent from '../components/SignIncontent';
+import { UidContext } from '../components/AppContext';
+import { Redirect } from 'react-router-dom';
 
 
 
 const Login = () => {
 
+    const uid = useContext(UidContext);
+
+    if(uid){
+        return <Redirect to={
+            {
+                pathname:"/profil",
+                state:{}
+            }
+        }/>
+    }
    
     // Handle Error, loading or render home Page 
-  
         return (
             <div className="login">
                 <Navigation/>
