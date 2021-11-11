@@ -4,20 +4,28 @@ import Footer from '../components/Footer';
 import Navigation from '../components/Navigation';
 import WelcomeUser from '../components/WelcomeUser';
 import { UidContext } from '../components/AppContext';
-import { Route , Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 
 const Profil = () => {
     const uid = useContext(UidContext);
-
+    
     if(!uid){
         return <Redirect to={
+            {
+                pathname:"/profil",
+                state:{}
+            }
+        }/>
+    }else{
+        <Redirect to={
             {
                 pathname:"/",
                 state:{}
             }
         }/>
     }
+    
     return (
         <div className="profil">
             <Navigation/>

@@ -1,11 +1,9 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-import Authentification from './Authentification'
-const usernameError = document.querySelector('.userName-error');
-const passwordError = document.querySelector('.password-error');
 
+const identificationError = document.querySelector('.identification-error');
 
-const SignIncontent = (props) => {
+const SignIncontent = () => {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -13,7 +11,6 @@ const SignIncontent = (props) => {
     const  handleLogin =(e)=>{
         e.preventDefault();
          
-        // Submit form data 
         axios({
             method: "post",
             url:`${process.env.REACT_APP_API_URL}api/v1/user/login`,
@@ -23,11 +20,12 @@ const SignIncontent = (props) => {
             },
         })
         .then((res)=>{
-            console.log(res);
             localStorage.setItem("token", res.data.body.token);
             window.location='/profil';
         })
-        .catch((err) => {console.log("erreur ", err.response.data.message)})
+        .catch((err) => {
+            identificationError.innerHTML = "Vos identifiants sont incorrects !";
+        })
     };
                 
     return (
@@ -35,6 +33,7 @@ const SignIncontent = (props) => {
             <i className="fa fa-user-circle sign-in-icon"></i>
             <h1>Sign In</h1>
             <form action="" onSubmit={handleLogin}>
+            <div className="identification-error"></div>
                 <div className="input-wrapper">
                     <label htmlFor="username">Username</label>
                     <input 
@@ -45,7 +44,6 @@ const SignIncontent = (props) => {
                         minLength="2"
                         maxLength="15"
                     />
-                    <div className="userName-error"></div>
                 </div>
                 <div className="input-wrapper">
                     <label htmlFor="password">Password</label >
@@ -57,7 +55,6 @@ const SignIncontent = (props) => {
                             minLength="2"
                             maxLength="15"
                         />
-                    <div className="password-error"></div>
                 </div>
                 <div className="input-remember">
                     <input 
@@ -66,6 +63,7 @@ const SignIncontent = (props) => {
                     />
                     <label htmlFor="remember-me">Remember me</label>
                 </div>
+                
                 <button type="submit" className="sign-in-button">Sign in</button>
             </form>
         </section>

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import { useSelector } from 'react-redux';
 const token = localStorage.getItem("token");
 
@@ -16,10 +16,9 @@ const WelcomeUser = () => {
         return null
     }
 
-
     const updateUserData =(e)=>{
         e.preventDefault();
-
+        
         axios({
             method: 'put',
             url: `${process.env.REACT_APP_API_URL}api/v1/user/profile`,
@@ -34,12 +33,11 @@ const WelcomeUser = () => {
         .then((res) => {
               setFirstName(res.data.body.firstName);
         })
-        .catch(err => console.log("no Token avalaible", err));
+        .catch(err => console.log(err));
         
         setupdateProfile(!updateProfile)
         window.location="./profil";
     }
-
 
     return (
         <div className="welcome-user-display">

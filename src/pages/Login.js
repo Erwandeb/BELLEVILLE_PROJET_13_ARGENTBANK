@@ -6,7 +6,6 @@ import { UidContext } from '../components/AppContext';
 import { Redirect } from 'react-router-dom';
 
 
-
 const Login = () => {
 
     const uid = useContext(UidContext);
@@ -14,22 +13,21 @@ const Login = () => {
     if(uid){
         return <Redirect to={
             {
-                pathname:"/profil",
+                pathname:"/Profil",
                 state:{}
             }
         }/>
     }
    
-    // Handle Error, loading or render home Page 
-        return (
-            <div className="login">
-                <Navigation/>
-                <main className="main bg-dark-login">
-                    <SignIncontent />
-                </main>
-                <Footer/>
-            </div>
-        );
+    return (
+        <div className="login">
+            <Navigation/>
+            <main className="main bg-dark-login">
+                <SignIncontent />
+            </main>
+            <Footer/>
+        </div>
+    );
 };
 
 export default Login;

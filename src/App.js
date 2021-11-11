@@ -10,9 +10,8 @@ import { UidContext } from './components/AppContext';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { getUser } from './actions/user.actions';
-import { ProtectedRoute } from './components/Protected.route';
-const token = localStorage.getItem("token")
 
+const token = localStorage.getItem("token")
 
 function App() {
 
@@ -29,7 +28,7 @@ function App() {
           },
       })
       .then((res) => setUid(res.data.body.id))
-      .catch(err => console.log("no Token", err));
+      .catch(err => console.log(err));
     }
     fetchToken();
 
@@ -45,7 +44,7 @@ function App() {
           <Switch>
             <Route path="/" exact component={HomePage}/>
             <Route path="/login" exact component={Login}/>
-            <ProtectedRoute path="/profil" exact component={Profil}/>
+            <Route path="/profil" exact component={Profil}/>
             <Route path="*" component={NotFound}/>
           </Switch>
         </BrowserRouter>

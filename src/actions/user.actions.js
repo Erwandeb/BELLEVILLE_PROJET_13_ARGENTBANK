@@ -20,4 +20,3 @@ export const getUser = () => {
     }
 }
 
-//res.data.body.id
