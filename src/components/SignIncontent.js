@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 
-const identificationError = document.querySelector('.identification-error');
+
 
 const SignIncontent = () => {
 
@@ -10,7 +10,8 @@ const SignIncontent = () => {
 
     const  handleLogin =(e)=>{
         e.preventDefault();
-         
+        const identificationError = document.getElementById('identification-error');
+
         axios({
             method: "post",
             url:`${process.env.REACT_APP_API_URL}api/v1/user/login`,
@@ -25,15 +26,18 @@ const SignIncontent = () => {
         })
         .catch((err) => {
             identificationError.innerHTML = "Vos identifiants sont incorrects !";
+            console.log(err.data);
+            console.log(identificationError)
         })
     };
                 
     return (
         <section className="sign-in-content">
+            
             <i className="fa fa-user-circle sign-in-icon"></i>
             <h1>Sign In</h1>
+           
             <form action="" onSubmit={handleLogin}>
-            <div className="identification-error"></div>
                 <div className="input-wrapper">
                     <label htmlFor="username">Username</label>
                     <input 
@@ -63,7 +67,7 @@ const SignIncontent = () => {
                     />
                     <label htmlFor="remember-me">Remember me</label>
                 </div>
-                
+                <div id="identification-error"></div>
                 <button type="submit" className="sign-in-button">Sign in</button>
             </form>
         </section>
