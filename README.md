@@ -1,14 +1,35 @@
-ARGENT BANK 
+# Bienvenue sur ARGENT BANK
+
+Il s'agit d'une application banquaire, connectée avec une API.
+Grâce à React et la technologie des hooks, la navigation et le transfert des données est ultra rapide.
+Pour le transfert les datas entre les composants, j'utilise le state manager REDUX. 
+Pour l'API, j'utilise NODE.JS et son Framework Express.js.
 
 
+## Quelques captures d'écrans : 
 
 
+<img width="930" alt="Capture1" src="https://user-images.githubusercontent.com/73883090/152120132-89572b32-c1a0-4af4-882c-8a92bfa92b05.PNG">
 
-### `npm start`
+<img width="930" alt="Capture2" src="https://user-images.githubusercontent.com/73883090/152120188-ff400e9e-dbc0-4660-b49f-eb9f993be1d0.PNG">
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<img width="930" alt="Capture3" src="https://user-images.githubusercontent.com/73883090/152120211-632592fc-f542-4bfa-b839-80bce0cdb762.PNG">
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
+## Pré-Requis :
+Pour faire tourner ce projet, vous aurez besoin de NodeJS et de télécharger ce projet.
+
+
+## Une fois téléchargé :
+
+1)Back end : 
+- Ouvrir le terminal de commande de votre IDE
+- NPM Install 
+- NPM RUN dev:server 
+- Le serveur doit se lancer et tourner sur votre serveur local:3001
+
+2)Front end : 
+- Ouvrir le terminal de commande de votre IDE
+- NPM Install 
+- NPM Start
+- Le projet doit se lancer dans votre navigateur et tourner sur votre serveur local:3000
