@@ -17,7 +17,9 @@ Pour l'API, j'utilise NODE.JS et son Framework Express.js.
 - Utiliser react avec des fonctions
 - Utiliser Redux 
 - Gestion des datas
-
+- Authentification par token 
+- Configurer une API
+- Sécurisation de l'API
 
 ### Outils techniques :
 
@@ -26,10 +28,14 @@ Pour l'API, j'utilise NODE.JS et son Framework Express.js.
 - React router dom
 - Redux 
 - Axios
-- 
-
-
-
+- Node.Js
+- Express.js
+- Mongoose
+- JWT
+- BCryt
+- CookieParser
+- MongoDB
+- PostMan
 
 
 ## Quelques captures d'écrans : 
