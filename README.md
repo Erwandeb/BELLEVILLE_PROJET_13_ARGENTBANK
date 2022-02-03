@@ -6,6 +6,29 @@ Pour le transfert les datas entre les composants, j'utilise le state manager RED
 Pour l'API, j'utilise NODE.JS et son Framework Express.js.
 
 
+### Techniques de développement :
+
+- Connecter une API avec une application Front-End
+- Création d'un routage
+- Gérer une authentification
+- CRUD 
+- Développer des composants sans états pour les ré-utiliser
+- Hooks (usestate,useffect,useContext)
+- Utiliser react avec des fonctions
+- Utiliser Redux 
+- Gestion des datas
+
+
+### Outils techniques :
+
+- React.js
+- Sass
+- React router dom
+- Redux 
+- Axios
+- 
+
+
 
 
 
